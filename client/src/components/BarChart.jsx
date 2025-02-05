@@ -159,6 +159,7 @@ const BarChart = ({ currMonth }) => {
           backdropFilter: 'blur(10px)'
         }}
       >
+
         <Bar data={data} options={options} />
       </div>
     </div>

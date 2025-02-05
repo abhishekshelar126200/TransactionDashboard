@@ -164,6 +164,7 @@ const Chart = ({ currMonth }) => {
 
   return (
     <div className="container mx-auto p-4 bg-gray-100 rounded-lg">
+      
       <h5 className="text-xl font-bold text-gray-800 text-center mb-4">
         Category Distribution - {months[currMonth - 1]}
       </h5>

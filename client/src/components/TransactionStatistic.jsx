@@ -158,9 +158,7 @@ function TransactionStatistic({ currMonth }) {
                 <div className="container-fluid px-4 px-md-5">
                     <div className="row mb-4 align-items-center">
                         <div className="col-12">
-                            <h1 className="fw-bold mb-1" style={{ fontSize: '2rem', color: '#2c3e50' }}>
-                                Transaction Insights
-                            </h1>
+                        
                             <p className="text-muted mb-0" style={{ fontSize: '0.875rem', color: '#7f8c8d' }}>
                                 Comprehensive overview of {months[currMonth - 1]} transactions
                             </p>

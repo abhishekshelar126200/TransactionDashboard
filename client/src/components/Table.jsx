@@ -42,7 +42,7 @@ function Table({ updateMonth }) {
       setLoading(true);
       try {
         const responseTable = await fetch(
-          `https://transactionapi-y297.onrender.com/transactionTable/${selectedMonth}?q=${query}`
+          `/transactionTable/${selectedMonth}?q=${query}`
         );
         if (!responseTable.ok) throw new Error("Network response was not ok");
 
@@ -69,16 +69,7 @@ function Table({ updateMonth }) {
       }}
     >
       <div className="container">
-        <h2
-          className="text-center fw-bold mb-4"
-          style={{
-            color: "#2c3e50",
-            fontSize: "2rem",
-          }}
-        >
-          Product Transactions
-        </h2>
-
+        
         <div className="row mb-4 align-items-center">
           <div className="col-md-6 mb-3 mb-md-0">
            
