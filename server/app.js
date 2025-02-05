@@ -21,16 +21,7 @@ app.get('/transactionTable/:month', async (req, res) => {
     const month = parseInt(req.params.month); // Parse month from request parameters
     const searchText = (req.query.q || "").toLowerCase(); // Get search query, default to empty string and lowercase it
     
-    // **Important:** Clearing the database before each fetch is highly inefficient.
-    // Remove this in a production environment.  It's likely for testing purposes.
-    await Products.deleteMany({}); 
 
-    // Fetch data from the external API
-    const response = await fetch("https://s3.amazonaws.com/roxiler.com/product_transaction.json");
-    const result = await response.json();
-
-    // Insert the fetched data into the MongoDB collection
-    await Products.insertMany(result);
 
     // Find transactions for the specified month
     const data = await Products.find({
@@ -41,8 +32,8 @@ app.get('/transactionTable/:month', async (req, res) => {
 
     // Divide the results into chunks of 4 for pagination (or display purposes)
     const divideResult = [];
-    for (let i = 0; i < data.length; i += 4) {
-        divideResult.push(data.slice(i, i + 4));
+    for (let i = 0; i < data.length; i += 10) {
+        divideResult.push(data.slice(i, i + 10));
     }
 
     // Apply search filter if a search query is provided
