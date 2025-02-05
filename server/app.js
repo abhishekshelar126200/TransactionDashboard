@@ -20,7 +20,14 @@ app.use(cors()); // Enable Cross-Origin Resource Sharing for all routes
 app.get('/transactionTable/:month', async (req, res) => {
     const month = parseInt(req.params.month); // Parse month from request parameters
     const searchText = (req.query.q || "").toLowerCase(); // Get search query, default to empty string and lowercase it
-    
+
+    // **Important:** Clearing the database before each fetch is highly inefficient.
+    // Remove this in a production environment.  It's likely for testing purposes.
+    // await Products.deleteMany({}); 
+
+    // Fetch data from the external API
+    // const response = await fetch("https://s3.amazonaws.com/roxiler.com/product_transaction.json");
+    // const result = await response.json();
 
 
     // Find transactions for the specified month
